@@ -1,3 +1,4 @@
 # Homepage generates this at runtime
 config/logs/
 config/kubernetes.yaml
+.env

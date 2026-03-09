@@ -1,11 +1,25 @@
-version: '3.8'
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     ports:
-      - '3000:3000'
+      - '3000:3000'  # direct access fallback
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: "localhost,${TAILSCALE_HOSTNAME},homepage.localhost,homepage.${TAILSCALE_HOSTNAME},localhost:3000,${TAILSCALE_HOSTNAME}:3000"
+    labels:
+      - "traefik.enable=true"
+      # Root hostname → homepage (the landing page)
+      - "traefik.http.routers.homepage.rule=Host(`localhost`) || Host(`${TAILSCALE_HOSTNAME}`) || Host(`homepage.localhost`) || Host(`homepage.${TAILSCALE_HOSTNAME}`)"
+      - "traefik.http.routers.homepage.entrypoints=web"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
     volumes:
       - ./config:/app/config
-      - /var/run/docker.sock:/var/run/docker.sock:ro  # optional: for Docker integration
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - homelab
+      - default
     restart: unless-stopped
+
+networks:
+  homelab:
+    external: true
