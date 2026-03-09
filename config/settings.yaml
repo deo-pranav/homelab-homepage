@@ -1,0 +1,19 @@
+---
+title: Homelab
+description: My personal homelab dashboard
+theme: dark
+color: slate
+headerStyle: clean
+layout:
+  Media:
+    style: row
+    columns: 4
+  Gaming:
+    style: row
+    columns: 4
+  Network:
+    style: row
+    columns: 4
+  Bots:
+    style: row
+    columns: 4

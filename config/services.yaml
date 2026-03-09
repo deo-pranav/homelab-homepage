@@ -1,0 +1,24 @@
+---
+- Gaming:
+    - RetroArch:
+        href: http://localhost:8082
+        description: Browser-based retro gaming
+        icon: retroarch.png
+
+- Media:
+    - Jellyfin:
+        href: http://localhost:8096
+        description: Media server
+        icon: jellyfin.png
+
+- Network:
+    - Pi-hole:
+        href: http://localhost:80/admin
+        description: Network-wide ad blocking
+        icon: pi-hole.png
+
+- Bots:
+    - Clawbot:
+        href: http://localhost:18789
+        description: OpenClaw bot gateway
+        icon: docker.png
