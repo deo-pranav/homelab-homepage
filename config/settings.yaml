@@ -1,9 +1,10 @@
 ---
 title: Homelab
 description: My personal homelab dashboard
-theme: dark
-color: slate
+theme: light
+color: sky
 headerStyle: clean
+useEqualHeights: true
 layout:
   Media:
     style: row

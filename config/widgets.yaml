@@ -1,12 +1,24 @@
 ---
+- search:
+    provider: google
+    focus: true
+    showSearchSuggestions: true
+
 - resources:
     cpu: true
+    cputemp: true
+    uptime: true
     memory: true
-    disk: /
+    disk:
+      - /
+      - /media/deopranav/deopranav-1
+    expanded: true
+    label: System
 
-- datetime:
-    text_size: xl
-    format:
-      timeStyle: short
-      dateStyle: short
-      hour12: true
+- openmeteo:
+    label: Passau
+    latitude: 48.5748
+    longitude: 13.4647
+    timezone: Europe/Berlin
+    units: metric
+    cache: 5

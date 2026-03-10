@@ -1,24 +1,58 @@
 ---
+- Security:
+    - Vaultwarden:
+        href: http://vault.deopranav-opti-1
+        description: Self-hosted password manager
+        icon: vaultwarden.png
+
 - Gaming:
     - RetroArch:
-        href: http://localhost:8082
+        href: http://deopranav-opti-1:8082
         description: Browser-based retro gaming
-        icon: retroarch.png
+        icon: mdi-controller-classic
+        server: my-docker
+        container: retroarch
+        ping: http://deopranav-opti-1:8082
 
 - Media:
     - Jellyfin:
-        href: http://localhost:8096
+        href: http://deopranav-opti-1:8096
         description: Media server
         icon: jellyfin.png
+        server: my-docker
+        container: jellyfin
 
 - Network:
+    - Traefik:
+        href: http://deopranav-opti-1:8080
+        description: Reverse proxy dashboard
+        icon: traefik.png
+        server: my-docker
+        container: traefik
+        ping: http://deopranav-opti-1:8080
+    - Portainer:
+        href: http://deopranav-opti-1:9000
+        description: Container management
+        icon: portainer.png
+        server: my-docker
+        container: portainer
+        widget:
+          type: portainer
+          url: http://host.docker.internal:9000
+          env: 3
+          key: ptr_c/aoqWlcLdLv/sr3YeGuZ++VydvYp0UW6f1sShUGU0c=
     - Pi-hole:
-        href: http://localhost:80/admin
+        href: http://deopranav-opti-1:80/admin
         description: Network-wide ad blocking
         icon: pi-hole.png
+        server: my-docker
+        container: pihole
 
 - Bots:
     - Clawbot:
-        href: http://localhost:18789
+        href: http://deopranav-opti-1:18789
         description: OpenClaw bot gateway
-        icon: docker.png
+        icon: mdi-robot
+        server: my-docker
+        container: clawbot
+        ping: http://deopranav-opti-1:18789

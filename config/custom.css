@@ -1,0 +1,26 @@
+/* ── Fonts ───────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap');
+
+* {
+  font-family: 'Geist', sans-serif !important;
+}
+
+code, pre, [class*="mono"], [class*="stat"], [class*="time"], [class*="date"],
+[class*="cpu"], [class*="mem"], [class*="disk"] {
+  font-family: 'Geist Mono', monospace !important;
+}
+
+/* ── Icy blue background ─────────────────────────────────────────────────── */
+body {
+  background-color: #e8eef6 !important;
+}
+
+/* ── Card refinements ────────────────────────────────────────────────────── */
+.card, [class*="card"] {
+  border-radius: 8px !important;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-thumb { border-radius: 2px; }

@@ -1,4 +1,42 @@
 ---
 - Developer:
     - GitHub:
-        - href: https://github.com
+        - abbr: GH
+          href: https://github.com/deo-pranav
+          icon: github.png
+    - Stack Overflow:
+        - abbr: SO
+          href: https://stackoverflow.com
+          icon: si-stackoverflow
+    - Dev.to:
+        - abbr: DT
+          href: https://dev.to
+          icon: si-devdotto
+
+- Social:
+    - LinkedIn:
+        - abbr: LI
+          href: https://linkedin.com
+          icon: linkedin.png
+    - Twitter:
+        - abbr: TW
+          href: https://twitter.com
+          icon: twitter.png
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com
+          icon: reddit.png
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com
+          icon: youtube.png
+    - Twitch:
+        - abbr: TV
+          href: https://twitch.tv
+          icon: twitch.png
+    - HackerNews:
+        - abbr: HN
+          href: https://news.ycombinator.com
+          icon: si-ycombinator

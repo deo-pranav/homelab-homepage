@@ -4,17 +4,23 @@ services:
     container_name: homepage
     ports:
       - '3000:3000'  # direct access fallback
+    env_file:
+      - .env
     environment:
       HOMEPAGE_ALLOWED_HOSTS: "localhost,${TAILSCALE_HOSTNAME},homepage.localhost,homepage.${TAILSCALE_HOSTNAME},localhost:3000,${TAILSCALE_HOSTNAME}:3000"
+      HOMEPAGE_VAR_PORTAINER_KEY: ${HOMEPAGE_VAR_PORTAINER_KEY}
     labels:
       - "traefik.enable=true"
       # Root hostname → homepage (the landing page)
       - "traefik.http.routers.homepage.rule=Host(`localhost`) || Host(`${TAILSCALE_HOSTNAME}`) || Host(`homepage.localhost`) || Host(`homepage.${TAILSCALE_HOSTNAME}`)"
       - "traefik.http.routers.homepage.entrypoints=web"
       - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /media/deopranav/deopranav-1:/media/deopranav/deopranav-1:ro
     networks:
       - homelab
       - default
